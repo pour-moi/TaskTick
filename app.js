@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-
+const PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -42,6 +42,6 @@ app.post("/", function (req, res) {
   res.redirect("/");
 });
 
-app.listen(3000, function () {
+app.listen(PORT, function () {
   console.log("Server listening on port 3000");
 });
