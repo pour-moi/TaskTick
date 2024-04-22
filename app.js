@@ -11,6 +11,7 @@ let tasks = ["First", "Second", "Third"];
 
 app.get("/", function (req, res) {
   let date = new Date();
+  let currentDate = new Date();
   const options = {
     weekday: "long",
     day: "numeric",
@@ -28,7 +29,7 @@ app.get("/", function (req, res) {
   }
 
   res.render("index", {
-    Date: date.toLocaleString("en-US", options),
+    Date: currentDate.toLocaleString("en-US", options),
     newTask: tasks,
     week_days: week_day,
     Dates: dates,
