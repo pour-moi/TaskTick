@@ -45,8 +45,12 @@ li {
   cursor: pointer;
 }
 
+input[type="checkbox"] {
+  accent-color: grey;
+}
+
 input:checked + p {
-  text-decoration: line-through;
+  color: #aaaaaa;
 }
 
 .task {
