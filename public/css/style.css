@@ -76,12 +76,39 @@ input[type="text"]:focus {
   box-shadow: inset 0 -3px 0 0 rgb(78, 236, 78);
 }
 
-.inside_task {
+.task__checkbox {
   display: flex;
   align-items: center;
 }
 
-button {
+.inside_task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete_button {
+  position: absolute;
+  right: 0;
+  margin-right: 37em;
+  display: none;
+  border-radius: 50%;
+  width: 1.6em;
+  height: 1.6em;
+  color: #aaaaaa;
+  border: 0.1em solid #aaaaaa;
+}
+.fa-solid {
+  font-size: 1em;
+}
+
+input:checked ~ .delete_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_button {
   background-color: rgb(78, 236, 78);
   border: none;
   border-radius: 50%;
@@ -131,5 +158,16 @@ button {
   .inside_task {
     margin-bottom: 0.6em;
     border-radius: 0.4em;
+  }
+  .delete_button {
+    position: absolute;
+    right: 0;
+    margin-right: 1.5em;
+    display: none;
+    border-radius: 50%;
+    width: 1.6em;
+    height: 1.6em;
+    color: #aaaaaa;
+    border: 0.1em solid #aaaaaa;
   }
 }

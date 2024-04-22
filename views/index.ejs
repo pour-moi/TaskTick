@@ -28,14 +28,21 @@
     <div class="task">
       <% for (let i = 0; i < newTask.length; i++){ %>
       <div class="inside_task">
-        <input type="checkbox" />
-        <p class="task__list"><%= newTask[i] %></p>
+        <div class="task__checkbox">
+          <input type="checkbox" />
+          <p class="task__list"><%= newTask[i] %></p>
+          <button type="submit" class="delete_button">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
       </div>
       <%}%>
 
       <form action="/" method="post">
         <input type="text" name="addedTask" autocomplete="off" required />
-        <button type="submit"><i class="fa-solid fa-plus"></i></button>
+        <button class="add_button" type="submit">
+          <i class="fa-solid fa-plus"></i>
+        </button>
       </form>
     </div>
   </body>
