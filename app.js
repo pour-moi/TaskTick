@@ -1,13 +1,35 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+mongoose.connect("mongodb://localhost:27017/tasktickDB");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(express.json());
 
-let tasks = ["First", "Second", "Third"];
+const taskSchema = {
+  name: String,
+};
+
+const Task = mongoose.model("Task", taskSchema);
+
+const task1 = new Task({
+  name: "First",
+});
+
+const task2 = new Task({
+  name: "Second",
+});
+
+const task3 = new Task({
+  name: "Third",
+});
+
+const defaultTask = [task1, task2, task3];
 
 app.get("/", function (req, res) {
   let date = new Date();
@@ -28,19 +50,29 @@ app.get("/", function (req, res) {
     date.setDate(date.getDate() + 1);
   }
 
-  res.render("index", {
-    Date: currentDate.toLocaleString("en-US", options),
-    newTask: tasks,
-    week_days: week_day,
-    Dates: dates,
+  Task.find({}).then((foundTask) => {
+    if (foundTask.length === 0) {
+      Task.insertMany(defaultTask);
+    } else {
+      res.render("index", {
+        Date: currentDate.toLocaleString("en-US", options),
+        newTask: foundTask,
+        week_days: week_day,
+        Dates: dates,
+      });
+    }
   });
 });
 
 app.post("/", function (req, res) {
   let addedTask = req.body.addedTask;
 
-  tasks.push(addedTask);
   res.redirect("/");
+});
+
+app.post("/checkbox-status", (req, res) => {
+  console.log(req.body.isChecked);
+  res.sendStatus(200);
 });
 
 app.listen(PORT, function () {
