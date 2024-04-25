@@ -26,17 +26,17 @@
       </div>
     </div>
     <div class="task">
-      <% for (let i = 0; i < newTask.length; i++){ %>
+      <% newTask.forEach (task=>{ %>
       <div class="inside_task">
         <div class="task__checkbox">
           <input type="checkbox" />
-          <p class="task__list"><%= newTask[i] %></p>
+          <p class="task__list"><%= task.name %></p>
           <button type="submit" class="delete_button">
             <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
       </div>
-      <%}%>
+      <%})%>
 
       <form action="/" method="post">
         <input type="text" name="addedTask" autocomplete="off" required />
@@ -45,5 +45,6 @@
         </button>
       </form>
     </div>
+    <script src="./js/main.js"></script>
   </body>
 </html>
