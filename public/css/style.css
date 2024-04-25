@@ -2,6 +2,10 @@ html {
   background-color: whitesmoke;
 }
 
+* {
+  font-family: SpaceGrotesk;
+}
+
 @font-face {
   font-family: "MontHeavy";
   src: url(Mont-HeavyDEMO.otf);
@@ -12,9 +16,14 @@ html {
   src: url(MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
 }
 
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url(SpaceGrotesk-Regular.ttf);
+}
+
 h1,
 li {
-  font-family: "MontHeavy";
+  /* font-family: "MontHeavy"; */
 }
 
 li {
@@ -32,13 +41,17 @@ li {
 
 .list__of__days .weekDay_and__date:first-child {
   background-color: rgb(78, 236, 78);
-  padding: 0.6em 0.3em 0.6em 0.3em;
-  border-radius: 1.4em;
   color: white;
 }
 
+.list__of__days .weekDay_and__date {
+  border: 1px solid black;
+  padding: 0.6em 0.7em 0.6em 0.7em;
+  font-size: 0.7em;
+}
+
 .task__list {
-  font-family: "MontHeavy";
+  /* font-family: "MontHeavy"; */
 }
 
 .task input[type="checkbox"] {
@@ -59,9 +72,14 @@ input:checked + p {
 }
 
 .task > .inside_task {
-  background-color: white;
   height: 5vh;
   padding: 0.7em;
+}
+
+.checkbox__task {
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 0.5em;
 }
 
 input[type="text"] {
@@ -126,20 +144,10 @@ input:checked ~ .delete_button {
     margin: 0.5em;
   }
   h1 {
-    margin: 0;
     font-size: 1.5em;
   }
   li {
     font-size: 1em;
-  }
-  .heading {
-    background-color: white;
-    padding: 0.5em;
-    border-radius: 1em;
-  }
-  .list__of__days .weekDay_and__date:first-child {
-    padding: 0.3em 0.2em 0.3em 0.2em;
-    border-radius: 1em;
   }
 
   .week_day {
@@ -155,9 +163,8 @@ input:checked ~ .delete_button {
     border: none;
     background: transparent;
   }
-  .inside_task {
+  .checkbox__task {
     margin-bottom: 0.6em;
-    border-radius: 0.4em;
   }
   .delete_button {
     position: absolute;
