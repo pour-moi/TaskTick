@@ -14,17 +14,16 @@
     />
   </head>
   <body>
-    <div class="heading">
-      <h1><%= Date %></h1>
-      <div class="list__of__days">
-        <% for(let i = 0 ; i < Dates.length; i++){ %>
-        <div class="weekDay_and__date">
-          <li class="week_day"><%= Dates[i].week_day %></li>
-          <li class="date"><%= Dates[i].date_num %></li>
-        </div>
-        <% } %>
+    <h1><%= Date %></h1>
+    <div class="list__of__days">
+      <% for(let i = 0 ; i < Dates.length; i++){ %>
+      <div class="weekDay_and__date">
+        <li class="week_day"><%= Dates[i].week_day %></li>
+        <li class="date"><%= Dates[i].date_num %></li>
       </div>
+      <% } %>
     </div>
+    <p>Task List</p>
     <div class="task">
       <% newTask.forEach (task=>{ %>
       <form action="/delete" method="post" class="checkbox__task">
@@ -46,7 +45,13 @@
       <%})%>
 
       <form action="/" method="post">
-        <input type="text" name="addedTask" autocomplete="off" required />
+        <input
+          type="text"
+          name="addedTask"
+          autocomplete="off"
+          placeholder="New Task"
+          required
+        />
         <button class="add_button" type="submit">
           <i class="fa-solid fa-plus"></i>
         </button>
