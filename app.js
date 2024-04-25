@@ -67,6 +67,11 @@ app.get("/", function (req, res) {
 app.post("/", function (req, res) {
   let addedTask = req.body.addedTask;
 
+  const task = new Task({
+    name: addedTask,
+  });
+  task.save();
+
   res.redirect("/");
 });
 
