@@ -75,9 +75,14 @@ app.post("/", function (req, res) {
   res.redirect("/");
 });
 
-app.post("/checkbox-status", (req, res) => {
-  console.log(req.body.isChecked);
-  res.sendStatus(200);
+app.post("/delete", function (req, res) {
+  const taskName = req.body.delete_task_name;
+
+  Task.findByIdAndDelete(taskName).then(() => {
+    console.log("Successfully Deleted");
+  });
+
+  res.redirect("/");
 });
 
 app.listen(PORT, function () {
