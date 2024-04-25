@@ -27,15 +27,17 @@
     </div>
     <div class="task">
       <% newTask.forEach (task=>{ %>
-      <div class="inside_task">
-        <div class="task__checkbox">
-          <input type="checkbox" />
-          <p class="task__list"><%= task.name %></p>
-          <button type="submit" class="delete_button">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+      <form action="" method="post" class="checkbox__task">
+        <div class="inside_task">
+          <div class="task__checkbox">
+            <input type="checkbox" />
+            <p class="task__list"><%= task.name %></p>
+            <button type="submit" class="delete_button">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
       <%})%>
 
       <form action="/" method="post">
