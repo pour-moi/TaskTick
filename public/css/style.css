@@ -7,13 +7,8 @@ html {
 }
 
 @font-face {
-  font-family: "MontHeavy";
-  src: url(Mont-HeavyDEMO.otf);
-}
-
-@font-face {
-  font-family: "MontLight";
-  src: url(MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+  font-family: "SpaceGrotesk_bold";
+  src: url(SpaceGrotesk-Bold.ttf);
 }
 
 @font-face {
@@ -23,7 +18,7 @@ html {
 
 h1,
 li {
-  /* font-family: "MontHeavy"; */
+  font-family: "SpaceGrotesk_bold";
 }
 
 li {
@@ -46,12 +41,14 @@ li {
 
 .list__of__days .weekDay_and__date {
   border: 1px solid black;
-  padding: 0.6em 0.7em 0.6em 0.7em;
+  width: 2em;
+  height: 2em;
+  padding: 0.7em;
   font-size: 0.7em;
 }
 
 .task__list {
-  /* font-family: "MontHeavy"; */
+  font-family: "SpaceGrotesk_bold";
 }
 
 .task input[type="checkbox"] {
@@ -79,14 +76,16 @@ input:checked + p {
 .checkbox__task {
   background-color: white;
   border: 1px solid black;
+  box-shadow: 2px 2px;
   margin-bottom: 0.5em;
 }
 
 input[type="text"] {
   width: 87%;
-  height: 60px;
+  height: 40px;
   border: none;
   background: transparent;
+  font-size: 1em;
 }
 
 input[type="text"]:focus {
@@ -128,15 +127,13 @@ input:checked ~ .delete_button {
 
 .add_button {
   background-color: rgb(78, 236, 78);
-  border: none;
-  border-radius: 50%;
-  width: 3em;
-  height: 3em;
+  border: 1px solid black;
+  width: 2em;
+  height: 2em;
 }
 .fa-plus {
   color: white;
-  font-size: 1.8em;
-  font-weight: bolder;
+  font-size: 1.1em;
 }
 
 @media (max-width: 768px) {
@@ -150,18 +147,15 @@ input:checked ~ .delete_button {
     font-size: 1em;
   }
 
-  .week_day {
-    font-family: "MontLight";
+  .list__of__days .weekDay_and__date:not(:first-child) .week_day {
+    font-family: "SpaceGrotesk";
+    color: #aaaaaa;
   }
   .task {
     width: 100%;
-    margin-top: 1.4em;
   }
   input[type="text"] {
-    width: 86%;
-    height: 50px;
-    border: none;
-    background: transparent;
+    height: 35px;
   }
   .checkbox__task {
     margin-bottom: 0.6em;
