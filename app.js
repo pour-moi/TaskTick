@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost:27017/tasktickDB");
+mongoose.connect(process.env.Mongo_Uri);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
