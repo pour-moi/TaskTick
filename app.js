@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(process.env.Mongo_Uri, function (err) {
+mongoose.connect(process.env.Mongo_Uri).then((err) => {
   if (err) {
     console.log("Error connecting to MongoDB:", err);
   } else {
