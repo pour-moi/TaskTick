@@ -3,7 +3,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(process.env.Mongo_Uri);
+mongoose.connect(process.env.Mongo_Uri, function (err) {
+  if (err) {
+    console.log("Error connecting to MongoDB:", err);
+  } else {
+    console.log("Successfully connected to MongoDB");
+  }
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
